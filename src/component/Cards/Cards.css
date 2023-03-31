@@ -1,0 +1,12 @@
+.cards {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+}
+.read-time {
+  background: rgba(96, 71, 236, 0.1);
+  border: 1px solid #6047ec;
+}
+.book-mark {
+  background: rgba(17, 17, 17, 0.05);
+  border-radius: 8px;
+}
