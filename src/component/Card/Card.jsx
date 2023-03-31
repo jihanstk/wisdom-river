@@ -3,7 +3,8 @@ import React from "react";
 const Card = (props) => {
   //   console.log(props);
   const { author, authorPhoto, picture, time, date, title, tags } = props.card;
-
+  const readTime = props.readTime;
+  const addToBookmark = props.addToBookmark;
   return (
     <div>
       <div className="w-11/12 bg-base-100 shadow mb-12">
@@ -23,7 +24,7 @@ const Card = (props) => {
             </div>
             <h5>
               {time} Min Read
-              <span className="p-2">
+              <span onClick={() => addToBookmark(props.card)} className="p-2">
                 <i className="fa-sharp fa-regular fa-bookmark"></i>
               </span>
             </h5>
@@ -31,7 +32,12 @@ const Card = (props) => {
           <h1 className="card-title mb-5 text-3xl">{title}</h1>
           <p>{tags}</p>
           <div className="card-actions">
-            <button className="btn btn-link">Mark As Read</button>
+            <button
+              onClick={() => readTime(props.card)}
+              className="btn btn-link"
+            >
+              Mark As Read
+            </button>
           </div>
         </div>
       </div>
