@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Bookmark from "../Bookmark/Bookmark";
 import Card from "../Card/Card";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Cards.css";
 
 const Cards = ({ cards }) => {
@@ -17,6 +19,9 @@ const Cards = ({ cards }) => {
   const addToBookmark = (bookmark) => {
     const title = bookmark.title;
     const id = bookmark.id;
+    if (id in bookmarks) {
+      toast("Already Bookmarked");
+    }
     const newBookmarks = [...bookmarks, { ...bookmarks, title, id }];
 
     setBookmarks(newBookmarks);
@@ -50,6 +55,7 @@ const Cards = ({ cards }) => {
                 ></Bookmark>
               );
             })}
+            <ToastContainer />
           </div>
         </div>
       </div>
