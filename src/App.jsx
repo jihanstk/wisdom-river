@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./component/Header/Header";
 import Cards from "./component/Cards/Cards";
+import Question from "./component/Question/Question";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -18,6 +19,7 @@ function App() {
     <div className="App mx-auto w-9/12">
       <Header></Header>
       <Cards cards={cards} key={cards.id}></Cards>
+      <Question></Question>
     </div>
   );
 }

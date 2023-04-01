@@ -18,8 +18,8 @@ const Card = (props) => {
                 alt=""
               />
               <div className="ml-2">
-                <h3 className="font-bold">{author}</h3>
-                <p className="text-slate-500">{date}</p>
+                <h3 className="font-bold sm:text-sm">{author}</h3>
+                <p className="text-slate-500 sm:text-sm">{date}</p>
               </div>
             </div>
             <h5>
@@ -29,7 +29,9 @@ const Card = (props) => {
               </span>
             </h5>
           </div>
-          <h1 className="card-title mb-5 text-3xl">{title}</h1>
+          <h1 className="card-title mb-5 md:text-3xl sm:text-lg sm:font-semibold">
+            {title}
+          </h1>
           <p>{tags}</p>
           <div className="card-actions">
             <button

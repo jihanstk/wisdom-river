@@ -10,3 +10,9 @@
   background: rgba(17, 17, 17, 0.05);
   border-radius: 8px;
 }
+@media screen and (max-width: 570px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

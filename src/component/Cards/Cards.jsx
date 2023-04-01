@@ -17,12 +17,15 @@ const Cards = ({ cards }) => {
   };
 
   const addToBookmark = (bookmark) => {
+    let newBookmarks;
     const title = bookmark.title;
     const id = bookmark.id;
     if (id in bookmarks) {
       toast("Already Bookmarked");
+      return;
+    } else {
+      newBookmarks = [...bookmarks, { title, id }];
     }
-    const newBookmarks = [...bookmarks, { ...bookmarks, title, id }];
 
     setBookmarks(newBookmarks);
   };
