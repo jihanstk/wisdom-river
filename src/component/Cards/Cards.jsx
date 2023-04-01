@@ -17,17 +17,22 @@ const Cards = ({ cards }) => {
   };
 
   const addToBookmark = (bookmark) => {
-    let newBookmarks;
     const title = bookmark.title;
     const id = bookmark.id;
-    if (id in bookmarks) {
-      toast("Already Bookmarked");
-      return;
-    } else {
-      newBookmarks = [...bookmarks, { title, id }];
-    }
+    const errorShow = () => {
+      toast("Already marked");
+    };
+    // let book = bookmarks.filter((item) => item.id !== id);
 
-    setBookmarks(newBookmarks);
+    let book = bookmarks.some((item) => item.id == id);
+    console.log(book);
+    if (book) {
+      errorShow();
+    } else {
+      const newBookmarks = [...bookmarks, { title, id }];
+
+      setBookmarks(newBookmarks);
+    }
   };
 
   return (
@@ -42,11 +47,11 @@ const Cards = ({ cards }) => {
           ></Card>
         ))}
       </div>
-      <div className="h-fit">
+      <div className="h-fit sticky top-3 ">
         <div className="border mb-4 p-2 read-time">
           <h2 className="text-2xl">Spent time on read :{time} min</h2>
         </div>
-        <div className="border p-6 book-mark">
+        <div className="border p-6 book-mark bg-red-100">
           <h2>Bookmarked Blogs : {bookmarks.length}</h2>
           <div className="p-3 rounded mb-5">
             {bookmarks.map((bookmark) => {
