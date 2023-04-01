@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App mx-auto w-9/12">
       <Header></Header>
-      <Cards cards={cards}></Cards>
+      <Cards cards={cards} key={cards.id}></Cards>
     </div>
   );
 }

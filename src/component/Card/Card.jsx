@@ -1,10 +1,10 @@
 import React from "react";
 
 const Card = (props) => {
-  //   console.log(props);
   const { author, authorPhoto, picture, time, date, title, tags } = props.card;
   const readTime = props.readTime;
   const addToBookmark = props.addToBookmark;
+
   return (
     <div>
       <div className="w-11/12 bg-base-100 shadow mb-12">

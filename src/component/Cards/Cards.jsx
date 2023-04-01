@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import Bookmark from "../Bookmark/Bookmark";
 import Card from "../Card/Card";
 import "./Cards.css";
 
 const Cards = ({ cards }) => {
   const [time, setTime] = useState(0);
   const [bookmarks, setBookmarks] = useState([]);
+  console.log(bookmarks);
   //   let totalTime = 0;
   const readTime = (readTime) => {
-    // console.log(readTime);
     const currentTime = readTime.time;
     const totalTime = time + currentTime;
     setTime(totalTime);
@@ -15,7 +16,9 @@ const Cards = ({ cards }) => {
 
   const addToBookmark = (bookmark) => {
     const title = bookmark.title;
-    const newBookmarks = [...bookmarks, title];
+    const id = bookmark.id;
+    const newBookmarks = [...bookmarks, { ...bookmarks, title, id }];
+
     setBookmarks(newBookmarks);
   };
 
@@ -32,17 +35,19 @@ const Cards = ({ cards }) => {
         ))}
       </div>
       <div className="h-fit">
-        <div className="border mb-4 p-4 read-time">
+        <div className="border mb-4 p-2 read-time">
           <h2 className="text-2xl">Spent time on read :{time} min</h2>
         </div>
         <div className="border p-6 book-mark">
           <h2>Bookmarked Blogs : {bookmarks.length}</h2>
           <div className="p-3 rounded mb-5">
             {bookmarks.map((bookmark) => {
+              //   console.log(bookmark);
               return (
-                <h2 className="text-xl bg-slate-50 p-3 rounded-xl mb-5">
-                  {bookmark}
-                </h2>
+                <Bookmark
+                  bookmark={bookmark.title}
+                  key={bookmark.id}
+                ></Bookmark>
               );
             })}
           </div>
